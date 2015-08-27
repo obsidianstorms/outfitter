@@ -1,0 +1,7 @@
+{
+    "require": {
+        "doctrine/doctrine-bundle": "^1.5",
+        "twig/twig": "^1.21",
+        "silex/silex": "^1.3"
+    }
+}

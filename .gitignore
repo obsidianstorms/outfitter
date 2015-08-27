@@ -1,0 +1,11 @@
+.DS_Store
+.idea
+docs/
+bin/
+builds/
+/reports/
+vendor/
+config/*.local.php
+build.properties
+composer.phar
+node_modules
