@@ -19,9 +19,9 @@ An action management system should be able to add, remove, and edit abilities.  
 * name
 * type: such as weapon vs spell vs nonspecific
 * rangeType: such as self vs touch vs melee vs ranged
-** A future filter might be actual distance values: 10ft, 30ft, 60ft etc
-** A future filter might be effect type: pierce, bludgeon, fire, poison, etc
-** Other future filters might be character (class) restrictions, "school", dice damage, save throw type, etc
+  * A future filter might be actual distance values: 10ft, 30ft, 60ft etc
+  * A future filter might be effect type: pierce, bludgeon, fire, poison, etc
+  * Other future filters might be character (class) restrictions, "school", dice damage, save throw type, etc
 * description
 
 
