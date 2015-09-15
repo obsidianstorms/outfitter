@@ -2,7 +2,7 @@
 
 ## Summary
 
-This application is intended to allow a player to define the abilities his game character may be able to use as actions.  It will act much like an ecommerce shopping cart managing products and shopping carts but there will not be a checkout or payment process.
+This application is intended to allow a player to define the abilities a game character may be able to use as actions or abilities.  It will act much like an ecommerce shopping cart managing products and shopping carts but there will not be a checkout or payment process.
 
 ## Goal
 
@@ -53,31 +53,10 @@ Store: A store page should contain a list of abilities with controls to add new 
 
 ## Data Objects
 
-players
-* playerId
-* username (required)
-* password (required)
-* emailAddress (required, unique)
-* firstName (required)
-* lastName (null)
-* hasAccess (bin/boolean) (default: false|0)
-* temporaryAccessHash (used for validation and password reset) (null)
-* temporaryAccessTimestamp (null)
+![Data UML](https://efsgithub.securewebportal.net/ryust/outfitter/tree/feature/plan-project/outfitter/src/images/common/outfitterdatauml.png)
 
 Note: The temporaryAccessHash is a dual use field.  If hasAccess is false, then the temporaryAccessHash will be used to confirm the email is valid.  If hasAccess is true, or if reset password request has been made, then another hash will be generated and the temporaryAccessTimestamp filled in with now().  If the link (some endpoint + hash value) is queried within X amount of time from the timestamp, then the reset password page will be accessed.
 
-collection
-* collectionId
-* collectionName (required)
-* collectionList (null) [a list of comma deliniated ability ids - ???]
-* playerId (required)
-
-abilities
-* abilityId
-* abilityName
-* typeName: weapon|spell|nonspecific
-* rangeStyle: self|touch|melee|range
-* description
 
 
 ## Technical Overview
