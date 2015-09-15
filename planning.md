@@ -53,7 +53,7 @@ Store: A store page should contain a list of abilities with controls to add new 
 
 ## Data Objects
 
-![Data UML](/images/common/outfitterdatauml.png)
+![Data UML](/outfitter/src/images/common/outfitterdatauml.png)
 
 Note: The temporaryAccessHash is a dual use field.  If hasAccess is false, then the temporaryAccessHash will be used to confirm the email is valid.  If hasAccess is true, or if reset password request has been made, then another hash will be generated and the temporaryAccessTimestamp filled in with now().  If the link (some endpoint + hash value) is queried within X amount of time from the timestamp, then the reset password page will be accessed.
 
