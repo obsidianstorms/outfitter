@@ -34,6 +34,8 @@ Future expansions of the action management system UI may include:
 
 ### Use Cases
 
+![Use Case UML](/outfitter/src/images/common/outfitterusecases.png)
+
 Login: A user visits the application and is presented a login form.  The form includes an emailaddress field, a masked password field, a forgotpassword link, a signup link.  Form submission with emailaddress and password will check if fields are not-null.  If null, then redirect to login page with error "Missing information".  If not-null, check if emailaddress exists.  If emailaddress does not exist, redirect to login page with "Invalid login".  If emailaddress exists but password is incorrect, redirect to login page with "Invalid login". If emailaddress and password are correct, then redirect to a myprofile page.
 
 Signup: A user wanting to sign up clicks the signup link on the login form.  A new page loads with required fields: emailaddress, firstname, password, confirmpassword.  Not required fields: lastname.  Submitting the form redirects to a page with a "Thank you for signing up.  Please check your email momentarily for a confirmation request."  The confirmation email contains a link to a "confirmation" endpoint with a generated hash value.
@@ -44,18 +46,26 @@ Reset Password: A user wanting to reset their password from the login form will 
 
 Confirm Reset Password: The reset password endpoint receiving a hash value will check if hashvalue exists and if the request time is within 24hours of the associated recorded timestamp.  This page will contain a password and confirmpassword field, both required.  If the form submission sees matching password values, the system will accept a new password set for the associated account.  
 
-My Profile: A myprofile page should contain a list of named collections and a resetpassword control.  
+My Profile: A myprofile page should contain a list of named collections and an edit profile menu.
+  
+Edit Profile: Should contain controls to reset password and change first and last names.
 
-Reset Password From Profile: The resetpassword control should allow a user to reset their password from inside the application.  The list of named collections should allow a user to delete or edit or define a new list.  The new functionality should present the complete store list of abilities.  The edit functionality should present the saved list of abilities.
+Reset Password From Profile: The resetpassword control should allow a user to reset their password from inside the application.  
+
+Collection Section: The list of named collections should allow a user to delete or edit or define a new list.  A new list adds a newly named and empty collection to the existing list. The edit functionality should present the saved list of abilities and allow removal of abilities from the list.
 
 Store: A store page should contain a list of abilities with controls to add new abilities or to interact with the individually listed abilities to add them to an existing list (part of a dropdown) or add them to a new list.
+
+Administration: An administration section should contain management pages for adding, editing, and removing ability types, ability ranges, and abilities.
+
+
 
 
 ## Data Objects
 
 ![Data UML](/outfitter/src/images/common/outfitterdatauml.png)
 
-Note: The temporaryAccessHash is a dual use field.  If hasAccess is false, then the temporaryAccessHash will be used to confirm the email is valid.  If hasAccess is true, or if reset password request has been made, then another hash will be generated and the temporaryAccessTimestamp filled in with now().  If the link (some endpoint + hash value) is queried within X amount of time from the timestamp, then the reset password page will be accessed.
+Note: The temporary_access_hash is a dual use field.  If hasAccess is false, then the temporary_access_hash will be used to confirm the email is valid.  If has_access is true, or if reset password request has been made, then another hash will be generated and the temporary_access_datetime filled in with now().  If the link (some endpoint + hash value) is queried within X amount of time from the datetime, then the reset password page will be accessed.
 
 
 
