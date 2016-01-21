@@ -1,0 +1,15 @@
+{% extends 'layout.html.twig' %}
+
+{% block sub_title 'Forgot Password - ' %}
+{% block body %}
+    <p>Forgot Password</p>
+    <form enctype="multipart/form-data" action="" method="POST">
+        <div>
+            <label for="emailaddress">Email Address: </label>
+            <input type="text" name="emailaddress" />
+        </div>
+        <div>
+            <input type="submit" name="submit" value="Request Password Reset" />
+        </div>
+    </form>
+{% endblock body %}
